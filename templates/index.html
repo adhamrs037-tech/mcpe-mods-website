@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر مودات فينوم وأستا</title>
+    <style>
+        body { font-family: sans-serif; background-color: #121212; color: #fff; margin: 0; padding: 20px; }
+        header { text-align: center; padding: 20px; background: #1e1e1e; border-radius: 10px; margin-bottom: 20px; }
+        .btn-add { display: inline-block; background: #00e676; color: #000; padding: 10px 15px; text-decoration: none; font-weight: bold; border-radius: 5px; margin-top: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: #1e1e1e; padding: 15px; border-radius: 10px; border: 1px solid #333; }
+        .card h3 { color: #ffcc00; margin-top: 0; }
+        .btn-download { display: block; text-align: center; background: #ffcc00; color: #000; padding: 8px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🐉 متجر مودات فينوم وأستا</h1>
+        <p>منصتك الخاصة لتحميل وإضافة مودات ماين كرافت الجوال (MCPE)</p>
+        <a href="/add" class="btn-add">+ إضافة مود جديد للموقع</a>
+    </header>
+
+    <h2>أحدث المودات المتاحة:</h2>
+    <div class="grid">
+        {% for mod in mods %}
+        <div class="card">
+            <h3>{{ mod[1] }}</h3>
+            <p><strong>القسم:</strong> {{ mod[3] }}</p>
+            <p>{{ mod[2] }}</p>
+            <a href="/download/{{ mod[4] }}" class="btn-download">تحميل الملف ({{ mod[4] }})</a>
+        </div>
+        {% else %}
+        <p>لا توجد مودات مضافة حتى الآن. اضغط على "إضافة مود جديد" لرفع أول مود!</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
