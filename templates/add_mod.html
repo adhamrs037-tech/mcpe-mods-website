@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة مود جديد</title>
+    <style>
+        body { font-family: sans-serif; background-color: #121212; color: #fff; padding: 20px; max-width: 500px; margin: auto; }
+        form { background: #1e1e1e; padding: 20px; border-radius: 10px; }
+        input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: none; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #00e676; border: none; font-weight: bold; border-radius: 5px; cursor: pointer; }
+        a { color: #ccc; display: block; margin-top: 15px; text-align: center; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <h2>رفع مود جديد للموقع</h2>
+    <form action="/add" method="POST" enctype="multipart/form-dict">
+        <label>عنوان المود:</label>
+        <input type="text" name="title" required placeholder="مثال: مود سيف أستا الخارق">
+
+        <label>القسم:</label>
+        <select name="category">
+            <option value="Add-on">إضافة (Add-on / MCPACK)</option>
+            <option value="World">عالم (World / MCWORLD)</option>
+            <option value="Skin">سكن (Skin)</option>
+        </select>
+
+        <label>وصف المود:</label>
+        <textarea name="description" rows="4" required placeholder="اكتب شرحاً للمود وكيفية استخدامه..."></textarea>
+
+        <label>اختر ملف المود (.mcpack / .mcaddon / .zip):</label>
+        <input type="file" name="file" required>
+
+        <button type="submit">نشر المود الآن</button>
+    </form>
+
+    <a href="/">← العودة للرئيسية</a>
+
+</body>
+</html>
